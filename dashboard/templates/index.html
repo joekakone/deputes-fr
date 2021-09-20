@@ -1,0 +1,140 @@
+{% extends base %}
+
+{% block preamble %}
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="dashboard/static/bootstrap/css/bootstrap.min.css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="dashboard/static/css/style.css">
+{% endblock %}
+
+{% block contents %}
+		<!-- Header -->
+		<div id="header">
+			<div class="container py-2">
+				<div class="row align-items-center justify-content-between">
+					<div>
+						<h1>Assemblée Nationale 🇫🇷</h1>
+					</div>
+					<div>
+                        <span>Source: <a href="https://www.data.gouv.fr/"  target="_blank">data.gouv.fr</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Indicators -->
+		<div id="indicators">
+			<div class="container py-1">
+				<div class="row">
+					<div class="col-lg-3 col-sm-6 card bg-white">
+						<div class="row align-items-center justify-content-around">
+							<div>
+								<h1>👤</h1>
+							</div>
+							<div>
+								<h3>{{ totalDeputies }}</h3>
+								<span>Nombre de députés</span>
+							</div>
+							<div>
+								<span>🔍</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 card bg-white">
+						<div class="row align-items-center justify-content-around">
+							<div>
+								<h1>👥</h1>
+							</div>
+							<div>
+								<h3>{{ totalGroups }}</h3>
+								<span>Nombre de groupes</span>
+							</div>
+							<div>
+								<span>🔍</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 card bg-white">
+						<div class="row align-items-center justify-content-around">
+							<div>
+								<h1>⌛</h1>
+							</div>
+							<div>
+								<h3>{{ meanAge }}</h3>
+								<span>Age moyen</span>
+							</div>
+							<div>
+								<span>🔍</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6 card bg-white">
+						<div class="row align-items-center justify-content-around">
+							<div>
+								<h1>⏱️</h1>
+							</div>
+							<div>
+								<h3>{{ meanExperienceDepute }}</h3>
+								<span>Expérience moyenne</span>
+							</div>
+							<div>
+								<span>🔍</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Graphs -->
+		<div class="graphs">
+			<div class="container py-1">
+				<div class="row">
+					<div class="col-lg-3 col-sm-12 card bg-white pt-4">
+						<h5>🚺 Proportion de femmes</h5>
+						<hr>
+						<div class="graph">
+							{{ embed(roots.piechart) }}
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-12 card bg-white pt-4">
+						<h5>👥 Députés par groupes parlementaires</h5>
+						<hr>
+						<div class="graph">
+							{{ embed(roots.age_bar) }}
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-12 card bg-white pt-4">
+						<h5>⌛ Répartition des âges</h5>
+						<hr>
+						<div class="graph">
+							{{ embed(roots.barchart) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Table -->
+		<div class="table">
+			<div class="container py-1 card bg-white pt-4">
+                <h5>🗓️ Liste des députés - Données brutes</h5>
+                <hr>
+                <div class="graph">
+                    {{ embed(roots.table) }}
+                </div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="container pb-2">
+			<div class="row align-items-center justify-content-between">
+				<div>
+				&copy; Copyright <strong><span>Dashboard</span></strong>. Tous droits réservés
+				</div>
+				<div class="credits">
+					Réalisé par <a href="https://github.com/joekakone" target="_blank">Joseph Konka</a>
+				</div>
+			</div>
+		</div>
+{% endblock%}
