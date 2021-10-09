@@ -1,15 +1,9 @@
 # coding : utf-8
 
 import pandas as pd
-import numpy as np
 from bokeh.io import curdoc
-from bokeh.plotting import figure
-from bokeh.transform import cumsum
-from bokeh.palettes import Category20c
-from bokeh.models import ColumnDataSource, DataTable, TableColumn, HoverTool, LabelSet
-from bokeh.models import WMTSTileSource
 
-# 
+# Charts module
 from plot import draw_piechart, draw_barplot, draw_age_bar, create_table
 
 # Paths & Config
